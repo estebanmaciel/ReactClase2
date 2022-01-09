@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+import logo1 from './logo1.png';
+import "bootswatch/dist/cosmo/bootstrap.min.css";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 
@@ -17,18 +19,18 @@ function App() {
      <div className="App">
        <header className="App-header">
          <Navbar />
-         <img src={logo} className="App-logo" alt="logo" />
+         <img src={logo1} className="App-logo" alt="logo" />
          {/* <p>
            Editar <code>src/App.js</code> y guardarlo para recargar la página.
          </p> */}
-         <a
+         {/* <a
            className="App-link"
            href="https://reactjs.org"
            target="_blank"
            rel="noopener noreferrer"
          >
            Tienda de libros
-         </a>
+         </a> */}
        </header>
      </div>
    );
