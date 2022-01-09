@@ -1,0 +1,19 @@
+#header {
+    padding-top: 0px;
+}
+header nav ul {
+    margin: 0;
+    padding: 0;
+}
+header nav li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+header nav li a {
+    vertical-align: middle;
+    font-size: 1.00em;
+    color: white;
+    padding: 12px;
+    margin: 0 0 0 10px;
+}
