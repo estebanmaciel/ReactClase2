@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+
 import logo1 from './logo1.png';
 import "bootswatch/dist/cosmo/bootstrap.min.css";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar"
-
+import CartWidget from './components/CartWidget/CartWidgets';
+import Items from './components/ItemListContainer/Items';
 // function App(){
 //   return (
     
@@ -18,20 +19,24 @@ function App() {
    return (
      <div className="App">
        <header className="App-header">
-         <Navbar />
-         <img src={logo1} className="App-logo" alt="logo" />
-         {/* <p>
-           Editar <code>src/App.js</code> y guardarlo para recargar la página.
-         </p> */}
-         {/* <a
-           className="App-link"
-           href="https://reactjs.org"
-           target="_blank"
-           rel="noopener noreferrer"
-         >
-           Tienda de libros
-         </a> */}
-       </header>
+        <div>
+        <img src={logo1} className="App-logo" alt="logo" />  
+        </div>
+        <div className='nav'>
+          <Navbar />
+          <CartWidget/>
+        </div>
+      </header>
+      <body className='body'>
+        <div>
+          <Items />
+        </div>
+        </body>  
+        <footer className='App-header'>
+        <div>
+          <h2>Todos los derechos reservados</h2>
+        </div>
+        </footer>
      </div>
    );
  }

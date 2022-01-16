@@ -1,0 +1,14 @@
+.cardItem {
+    border: white;
+    border-style: solid;
+    text-align: left;
+    color: white;
+    padding:2px;  
+}
+
+.items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
