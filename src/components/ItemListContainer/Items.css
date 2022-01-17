@@ -11,4 +11,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 2%;
+    width: 100%;
+}
+
+.centrado{
+    width: 70%;
+    margin: 0 auto;
 }

@@ -1,0 +1,18 @@
+.counterItem {
+    display: flex;
+    flex-direction: row;
+    border: white;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    max-width: 280px;
+    justify-content: space-between;
+}
+
+.cartButton {
+    border: white;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    max-width: 280px;
+}
