@@ -5,18 +5,23 @@ import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 import CartWidget from './components/CartWidget/CartWidgets';
 import Items from './components/ItemListContainer/Items';
-import ItemCount from './components/ItemCount/ItemCount';
-// function App(){
-//   return (
-    
-//     <div>
-//       {console.warn("Hola")}
-//       <h1 style={{color:"red"}}>Hola Mundo desde React {5+5}</h1>
-//     </div>
-//   )
-// }
+import { useState, useEffect} from 'react';
+import {getBooks} from "./Database/dataBase"
+
+
 
 function App() {
+  const [books, setBooks] = useState([]);   
+  const [isLoading, setIsLoading] = useState(false);
+
+     useEffect(() => {
+      setIsLoading(true);
+      getBooks()
+        .then((data) => setBooks(data))
+        .catch((error) => console.error(error))
+        .finally(() => setIsLoading(false));
+    }, []);
+
    return (
      <div className="App">
        <header className="App-header">
@@ -30,10 +35,12 @@ function App() {
       </header>
       <body className='body'>
         <div className='items'>
-          <Items  titulo={"El señor de los anillos"} paginas = {"220"} autor = {"Autor"} tapa ={"Dura"} stock = {"10"}/>
-          <Items  titulo={"Harry Potter"} paginas = {"320"} autor = {"Autor Potter"} tapa ={"Dura"} stock= {"22"} />
-          <Items  titulo={"Fundamentos Pyhton"} paginas = {"820"} autor = {"Autor Python"} tapa ={"Blanda"} stock= {"11"} />
-          <Items  titulo={"React para tontos"} paginas = {"1820"} autor = {"Autor React"} tapa ={"Dura"} stock= {"2"} />
+          {isLoading? (
+            <div className='loader'></div>
+          ) :
+          (
+            books.map((books)=> <Items key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)
+            )}
         </div>
         </body>  
         <footer className='App-header'>
@@ -42,6 +49,7 @@ function App() {
         </div>
         </footer>
      </div>
+
    );
  }
 
