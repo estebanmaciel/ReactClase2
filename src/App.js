@@ -39,7 +39,9 @@ function App() {
             <div className='loader'></div>
           ) :
           (
-            books.map((books)=> <Items key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)
+            books ? books.map((books)=> <Items key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)  :
+            <h1>No se encontraron datos para mostrar. Intenta mas tarde</h1>
+           
             )}
         </div>
         </body>  
