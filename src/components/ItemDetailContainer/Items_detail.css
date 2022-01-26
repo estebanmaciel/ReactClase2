@@ -3,7 +3,6 @@
     border-style: solid;
     text-align: left;
     color: white;
-    padding:1%;  
 }
 
 .items{
@@ -17,12 +16,12 @@
 }
 
 .centrado{
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
 }
 
 .imagenes{
-    width: 180px;
-    height: 210px;
+    width: 280px;
+    height: 280px;
 }
 
