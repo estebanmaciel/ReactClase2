@@ -1,3 +1,10 @@
+Se agrego la posibilidad de navegar desde el listado de productos hacia el detalle de los mismos. 
+
+Se puede hacer desde el boton que esta en cada uno de los productos o directamente ingresando el codigo del libro en "/item/1"
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
