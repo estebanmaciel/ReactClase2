@@ -1,52 +1,75 @@
 
-import logo1 from './logo1.png';
 import "bootswatch/dist/cosmo/bootstrap.min.css";
 import './App.css';
-import { useState, useEffect} from 'react';
-import Navbar from './components/Navbar/Navbar';
-import {getOneBooks} from "./Database/dataBase"
-import ItemsDetail from './components/ItemDetailContainer/ItemDetail';
+import Navbar from "./components/Navbar/Navbar"
 
 
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import About from './pages/About';
+import Primario from './pages/primario';
+import Inicial from './pages/inicial';
+import Secundario from "./pages/secundario"
+import ItemDetail from './pages/ItemDetail';
+import Products from './pages/products';
+import A404 from './pages/404'
 
 
 
 function App() {
-  const [books, setBooks] = useState([]);   
-  const [isLoading, setIsLoading] = useState(false);
 
-     useEffect(() => {
-      setIsLoading(true);
-      getOneBooks()
-        .then((data) => setBooks(data))
-        .catch((error) => console.error(error))
-        .finally(() => setIsLoading(false));
-    }, []);
 
    return (
-     <div className="App">
-       <header className="App-header">
-       <div className='nav'>
-           <Navbar />
-         </div>
-       </header>
-       <body className='body'>
-         <div className='items'>
-           {isLoading? (
-             <div className='loader'></div>
-           ) :
-           (
-             books ? books.map((books)=> <ItemsDetail key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)  :
-             <h1>No se encontraron datos para mostrar. Intenta mas tarde</h1>
-           )}
-         </div>
-         </body>  
-         <footer className='App-header'>
-         <div>
-           <h2>Todos los derechos reservados</h2>
-         </div>
-         </footer>
-      </div>
+    <BrowserRouter>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path = "/">
+          <Route index element= {<HomePage />}></Route>
+          <Route path = "about" element= {<About />}></Route>
+          <Route path = "ofertas" element= {<ofertas />}></Route>
+          <Route path = "primario" element= {<Primario />}></Route>
+          <Route path = "inicial" element= {<Inicial />}></Route>
+          <Route path = "secundario" element= {<Secundario />}></Route>
+          <Route path = "category" element= {<HomePage/>}></Route>
+        </Route>          
+        <Route path = "item">
+          <Route index element= {<Products />}/>
+          <Route path = ":id" element= {<ItemDetail/>}/>
+        </Route>
+        <Route path = "*" element={<A404/> }></Route>
+      </Routes>
+    </BrowserRouter>
+    //  <div className="App">
+    //    <header className="App-header">
+    //      <div>
+    //      {/* <img src={logo1} className="App-logo" alt="logo" />   */}
+    //      </div>
+    //      <div className='nav'>
+    //        <Navbar />
+    //        <CartWidget/>
+    //      </div>
+    //    </header>
+    //    <body className='body'>
+         
+    //        {isLoading? (
+    //          <div className='loader'></div>
+    //        ) :
+    //        <div className='items'>
+    //         {(
+    //           books.length>0 ? books.map((books)=> <Items key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)  :
+    //           <div className='centrado'>
+    //             <h1>No se encontraron datos para mostrar. Intenta mas tarde</h1>
+    //           </div>        
+    //         )}
+    //        </div>}
+         
+    //      </body>  
+    //      <footer className='App-header'>
+    //      <div>
+    //        <h2>Todos los derechos reservados</h2>
+    //      </div>
+    //      </footer>
+    //   </div>
 
    );
  }

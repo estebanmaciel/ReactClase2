@@ -2,11 +2,10 @@
 import logo1 from './logo1.png';
 import "bootswatch/dist/cosmo/bootstrap.min.css";
 import './App.css';
-import Navbar from "./components/Navbar/Navbar"
-import CartWidget from './components/CartWidget/CartWidgets';
-import Items from './components/ItemListContainer/Items';
 import { useState, useEffect} from 'react';
-import {getBooks} from "./Database/dataBase"
+import Navbar from './components/Navbar/Navbar';
+import {getOneBooks} from "./Database/dataBase"
+import ItemsDetail from './components/ItemDetailContainer/ItemDetail';
 
 
 
@@ -18,7 +17,7 @@ function App() {
 
      useEffect(() => {
       setIsLoading(true);
-      getBooks()
+      getOneBooks()
         .then((data) => setBooks(data))
         .catch((error) => console.error(error))
         .finally(() => setIsLoading(false));
@@ -27,12 +26,8 @@ function App() {
    return (
      <div className="App">
        <header className="App-header">
-         <div>
-         <img src={logo1} className="App-logo" alt="logo" />  
-         </div>
-         <div className='nav'>
+       <div className='nav'>
            <Navbar />
-           <CartWidget/>
          </div>
        </header>
        <body className='body'>
@@ -41,7 +36,7 @@ function App() {
              <div className='loader'></div>
            ) :
            (
-             books ? books.map((books)=> <Items key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)  :
+             books ? books.map((books)=> <ItemsDetail key={books.id} titulo={books.titulo} autor={books.autor} paginas={books.paginas} tapa={books.tapa} stock={books.stock} precio={books.precio} imagen={books.imagen} />)  :
              <h1>No se encontraron datos para mostrar. Intenta mas tarde</h1>
            )}
          </div>

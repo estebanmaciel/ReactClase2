@@ -1,11 +1,13 @@
 import "./Navbar.css"
+import {Link} from "react-router-dom"
 
 function Navbar(){
     return (
 
 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Libros</a>
+    <div className="navbar-brand"><Link to = "/">Libreria</Link></div>
+    
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -22,14 +24,14 @@ function Navbar(){
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Educación</a>
           <div className="dropdown-menu">
-            <a className="dropdown-item" href="#">Nivel inicial</a>
-            <a className="dropdown-item" href="#">Nivel primario</a>
-            <a className="dropdown-item" href="#">Nivel secundario</a>
-            <a className="dropdown-item" href="#">Nivel universitario</a>
+            <div className="dropdown-item"><Link to = "/inicial">Nivel inicial</Link></div>
+            <div className="dropdown-item"><Link to = "/primario">Nivel primario</Link></div>
+            <div className="dropdown-item"><Link to = "/secundario">Nivel secundario</Link></div>
+            <div className="dropdown-item"><Link to = "/about">Nivel universitario</Link></div>
           </div>
         </li>        
         <li className="nav-item">
-          <a className="nav-link" href="#">Sobre nosotros</a>
+          <div className="nav-link"> <Link to = "/about">Sobre nosotros</Link> </div>
         </li>
 
       </ul>
